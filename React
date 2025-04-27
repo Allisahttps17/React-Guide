@@ -1,0 +1,69 @@
+ What to Check When Installing Things in VS Code (React Setup)
+. Node.js and npm must be installed
+ Check if installed by running in terminal:
+
+node --version
+npm --version
+If it shows a version (example: v18.17.1), you’re good.
+If error, install Node.js from https://nodejs.org/.
+
+🛠 2. npx must work
+ Test by running:
+
+
+npx --version
+If it gives a version, you’re ready.
+If error, npm is broken — reinstall Node.js.
+
+ 3. Create the React App properly
+
+npx create-react-app my-app
+
+Take Note: Don't create inside C:/Program Files/ or restricted folders.
+
+Use folders like Documents, Desktop, Projects, etc.
+
+ 4. Install Correct VS Code Extensions
+ Open Extensions tab (left side icon or Ctrl+Shift+X) and install:
+
+
+Extension Name	Purpose
+ES7+ React/Redux/React-Native snippets	Quick shortcuts for creating components
+Prettier - Code formatter	Auto-format your code
+Tailwind CSS IntelliSense	Autocomplete Tailwind classes
+ 5. Check if React app runs
+ Inside your project folder (cd my-app), run:
+
+npm start
+It should open http://localhost:3000/ automatically.
+
+6. If Installing TailwindCSS
+
+Install Tailwind:
+
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+Edit tailwind.config.js properly:
+content: ["./src/**/*.{js,jsx,ts,tsx}"],
+ Edit src/index.css:
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+Make sure src/index.js imports:
+
+import './index.css';
+
+#	Step	Command
+1	Check Node and npm	node -v and npm -v
+2	Check npx works	npx -v
+3	Create React app	npx create-react-app my-app
+4	Install VS Code Extensions	(ES7+, Prettier, Tailwind IntelliSense)
+5	Run server	npm start
+6	Install Tailwind	npm install -D tailwindcss postcss autoprefixer
+
+Notes to remember:
+Always open a New Terminal inside your project folder.
+Always restart the dev server after major installs (Ctrl+C, then npm start again).
+
